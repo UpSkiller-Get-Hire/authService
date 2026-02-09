@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Date;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -51,9 +52,10 @@ public class JwtService {
                 .compact();
     }
 
-    public String generateRefreshToken(User user){
+    public String generateRefreshToken(User user, UUID refreshTokenId){
         return Jwts.builder()
                 .subject(user.getId().toString())
+                .id(refreshTokenId.toString())
                 .issuer("auth-service")
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis()+refreshExpiry))
