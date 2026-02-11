@@ -80,4 +80,12 @@ public class JwtService {
                 .getPayload()
                 .get("role").toString();
     }
+    public String extractTokenId(String token){
+        return Jwts.parser()
+                .verifyWith(publicKey)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload()
+                .getId();
+    }
 }

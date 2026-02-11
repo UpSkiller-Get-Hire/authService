@@ -1,5 +1,6 @@
 package org.UPSkiller.Controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -30,5 +31,11 @@ public class AuthController {
     public ResponseEntity<Map<String,String>> login (@Valid @RequestBody LoginRequest loginRequest,HttpServletResponse response) {
         authService.login(loginRequest,response);
         return ResponseEntity.ok(Map.of("message","Login successful"));
+    }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<Void> refresh(HttpServletRequest request, HttpServletResponse response) {
+        authService.refresh(request,response);
+        return ResponseEntity.noContent().build();
     }
 }
