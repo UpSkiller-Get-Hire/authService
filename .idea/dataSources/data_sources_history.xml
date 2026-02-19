@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+<DataSourcesHistory>
+  <DataSourceFromHistory isRemovedFromProject="false">
     <data-source source="LOCAL" name="PostgreSQL" uuid="60964ed9-013f-41f6-bfe5-7d7e23322b5d">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" />
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <configured-by-url>true</configured-by-url>
@@ -12,13 +12,22 @@
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
         <property name="com.intellij.clouds.kubernetes.db.container.port" />
       </jdbc-additional-properties>
+      <secret-storage>master_key</secret-storage>
+      <user-name>auth_user</user-name>
+      <schema-mapping />
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+  </DataSourceFromHistory>
+  <DataSourceFromHistory isRemovedFromProject="false">
     <data-source source="LOCAL" name="authdb@100.90.107.80" uuid="aef7e1bb-d1a4-4c1e-ae36-ad888b17e7b3">
+      <database-info product="PostgreSQL" version="15.15 (Debian 15.15-1.pgdg13+1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.7.3" dbms="POSTGRES" exact-version="15.15" exact-driver-version="42.7">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
-      <remarks>$PROJECT_DIR$/app/src/main/resources/application.properties</remarks>
+      <remarks>/home/karma/Home/Projects/smart-recruitment/auth-service/app/src/main/resources/application.properties</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://100.90.107.80:5432/authdb</jdbc-url>
       <jdbc-additional-properties>
@@ -26,7 +35,15 @@
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
         <property name="com.intellij.clouds.kubernetes.db.container.port" />
       </jdbc-additional-properties>
+      <user-name>auth_user</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-  </component>
-</project>
+  </DataSourceFromHistory>
+</DataSourcesHistory>

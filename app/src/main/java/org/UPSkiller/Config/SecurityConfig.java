@@ -12,18 +12,24 @@ import org.springframework.web.cors.CorsConfigurationSource;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http, CorsConfigurationSource corsConfigurationSource) throws Exception {
+    public SecurityFilterChain securityFilterChain(
+            HttpSecurity http,
+            CorsConfigurationSource corsConfigurationSource
+    ) throws Exception {
+
         http
-                .securityMatcher("/auth/**")
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource))
-
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/signup").permitAll()
-                        .requestMatchers("/auth/login").permitAll()
-                        .requestMatchers("/auth/refresh").permitAll()
+                        .requestMatchers(
+                                "/auth/signup",
+                                "/auth/login",
+                                "/auth/refresh"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 );
+
         return http.build();
     }
+
 }

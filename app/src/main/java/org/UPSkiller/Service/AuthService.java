@@ -74,7 +74,7 @@ public class AuthService {
 
         addCookie(response,"accessToken",accessToken,(int) (accessExpiry / 1000),"/");
 
-        addCookie(response, "refreshToken", refreshToken, (int) (refreshExpiry / 1000), "/auth/refresh");
+        addCookie(response, "refreshToken", refreshToken, (int) (refreshExpiry / 1000), "/api/auth/refresh");
 
 
     }
@@ -188,10 +188,11 @@ public class AuthService {
     ){
         Cookie cookie = new Cookie(name,value);
         cookie.setHttpOnly(true);
-        cookie.setSecure(false); // for local dev
+        cookie.setSecure(true); // for local dev
         cookie.setPath(path);
         cookie.setMaxAge(maxAgeSeconds);
-        cookie.setAttribute("SameSite", "Lax");
+        cookie.setAttribute("SameSite", "Strict");
+        cookie.setDomain("smart.local");
         response.addCookie(cookie);
     }
 }
